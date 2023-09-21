@@ -1,0 +1,30 @@
+---
+- name: '-'
+  hosts: all
+  gather_facts: false
+  become_method: sudo
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    network_interface: eth0            # used in: netplan_static_ip.yaml.j2
+    network_cidr: /24                  # used in: netplan_static_ip.yaml.j2 .env.j2
+    network_ip_gateway: 192.168.178.1  # used in: netplan_static_ip.yaml.j2 .env.j2
+    network_ip_device: 192.168.178.4   # used in: netplan_static_ip.yaml.j2 .env.j2
+
+  pre_tasks:
+    - name: 'connect & retrieve env variables'
+      ansible.builtin.setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - 'env'
+
+  roles:
+    - GITHUB.UPDATE.ROLE
+    - GITHUB.LINTING.ROLE
+
+  tasks:
+    - import_tasks: tasks/1_timezone.yml
+    - import_tasks: tasks/2_stub_resolver.yml # for pihole on Ubuntu/Fedora
+    - import_tasks: tasks/3_docker.yml
+    - import_tasks: tasks/4_netplan.yml

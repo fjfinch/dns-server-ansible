@@ -1,5 +1,5 @@
 # dns-server-ansible
-Ansible playbook to deploy and configure Pi-hole & Unbound containers. Tested on Ubuntu ARM64 (Raspberry Pi).
+Ansible playbook to deploy and configure Pi-hole & Unbound Docker containers. Tested on Ubuntu ARM64 (Raspberry Pi).
 
 ## Install & setup
 To use Ansible, a couple of tools are required:
@@ -42,8 +42,6 @@ sudo docker exec -it pihole pihole -a -p
     https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt     - Tracking & Telemetry
     https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts             - Tracking & Telemetry
     https://v.firebog.net/hosts/Easyprivacy.txt                                                 - Tracking & Telemetry
-(in GUI) add whitelist domains
-    s.shopify.com
 
 sudo docker exec -it pihole pihole updateGravity
 ```

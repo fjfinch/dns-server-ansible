@@ -39,3 +39,5 @@ services:
       TZ: Europe/Amsterdam
     volumes:
       - ./unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf
+    healthcheck:
+      disable: true

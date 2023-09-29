@@ -16,9 +16,9 @@ services:
     environment:
       TZ: Europe/Amsterdam
       PIHOLE_DNS_: 127.0.0.1#5335
-      DNSMASQ_LISTENING: local
-      DNS_FQDN_REQUIRED: "true"
-      DNS_BOGUS_PRIV: "true"
+      DNSMASQ_LISTENING: local # default
+      DNS_FQDN_REQUIRED: "false" # Enabling CF will forward all hostnames (non-FQDNs) to router when "Never forward non-FQDNs" is NOT enabled
+      DNS_BOGUS_PRIV: "true" # default
       DNSSEC: "true"
       REV_SERVER: "true"
       REV_SERVER_CIDR: "${REV_SERVER_CIDR}"
@@ -28,16 +28,3 @@ services:
     volumes:
       - volume_pihole_dnsmasq:/etc/dnsmasq.d/
       - volume_pihole_general:/etc/pihole/
-
-  unbound:
-    image: mvance/unbound-rpi:latest
-    container_name: unbound
-    hostname: unbound
-    network_mode: host
-    restart: unless-stopped
-    environment:
-      TZ: Europe/Amsterdam
-    volumes:
-      - ./unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf
-    healthcheck:
-      disable: true

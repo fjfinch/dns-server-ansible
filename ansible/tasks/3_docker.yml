@@ -7,7 +7,7 @@
 - name: 'DOCKER : copy docker env file'
   ansible.builtin.template:
     src: templates/.env.j2
-    dest: files/.env
+    dest: files/pihole/.env
     mode: '0644'
   become: true
 
@@ -21,6 +21,8 @@
 - name: 'DOCKER : create containers'
   community.docker.docker_compose:
     project_src: '{{ item.project_src }}'
+    recreate: always # might remove - not necessary
   loop:
-    - { project_src: files/ }
+    - { project_src: files/pihole }
+    - { project_src: files/unbound }
   become: true

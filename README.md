@@ -45,10 +45,3 @@ sudo docker exec -it pihole pihole -a -p
 
 sudo docker exec -it pihole pihole updateGravity
 ```
-
-## Update
-```bash
-sudo docker pull <IMAGE>
-sudo docker-compose up -d
-sudo docker system prune -a
-```

@@ -1,0 +1,16 @@
+---
+version: '3'
+
+services:
+  unbound:
+    image: mvance/unbound-rpi:latest
+    container_name: unbound
+    hostname: unbound
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Amsterdam
+    volumes:
+      - ./unbound.conf:/opt/unbound/etc/unbound/unbound.conf
+    healthcheck:
+      disable: true

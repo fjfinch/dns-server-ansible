@@ -21,7 +21,6 @@
 
   roles:
     - GITHUB.UPDATE.ROLE
-    - GITHUB.LINTING.ROLE
 
   tasks:
     - import_tasks: tasks/1_timezone.yml

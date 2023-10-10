@@ -1,6 +1,5 @@
 ---
-- name: 'disable stub resolver on ubuntu for pihole'
-  block:
+- block:
     - name: 'DOCKER - STUB : disable stub resolver'
       ansible.builtin.lineinfile:
         path: /etc/systemd/resolved.conf
@@ -43,9 +42,7 @@
 
 - name: 'DOCKER : create volumes'
   community.docker.docker_volume:
-    name: '{{ item.name }}'
-  loop:
-    - { name: volume_pihole_general }
+    name: volume_pihole_general
   become: true
 
 - name: 'DOCKER : create containers'

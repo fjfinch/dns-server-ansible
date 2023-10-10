@@ -5,20 +5,17 @@
   become_method: sudo
 
   vars:
-    ansible_python_interpreter: /usr/bin/python3
-    network_hostname: Raspberry-Pi-4B
+    network_hostname: test-ubuntu      # used in: 1_hostname.yml
     network_interface: eth0            # used in: netplan_static_ip.yaml.j2
     network_cidr: /24                  # used in: netplan_static_ip.yaml.j2 .env.j2
     network_ip_gateway: 192.168.178.1  # used in: netplan_static_ip.yaml.j2 .env.j2
     network_ip_device: 192.168.178.4   # used in: netplan_static_ip.yaml.j2 .env.j2
 
   pre_tasks:
-    - name: 'connect & retrieve env variables'
+    - name: 'Connect to host & retrieve min facts'
       ansible.builtin.setup:
         gather_subset:
           - '!all'
-#          - '!min'
-#          - 'env'
 
   roles:
     - GITHUB.UPDATE.ROLE

@@ -1,5 +1,5 @@
 ---
-- name: 'HOSTNAME : disable updating of hostname by cloud-init'
+- name: 'HOSTNAME : disable updating hostname by cloud-init'
   ansible.builtin.lineinfile:
     path: /etc/cloud/cloud.cfg
     search_string: '{{ item.search_string }}'

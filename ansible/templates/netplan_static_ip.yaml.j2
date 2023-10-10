@@ -3,13 +3,13 @@ network:
     version: 2
     renderer: networkd
     ethernets:
-        '{{ network_interface }}':
+        '{{ device_interface }}':
             dhcp4: false
             addresses:
-                - '{{ network_ip_device }}{{ network_cidr }}'
+                - '{{ device_ip }}{{ network_cidr }}'
             routes:
                 - to: default
-                  via: '{{ network_ip_gateway }}'
+                  via: '{{ gateway_ip }}'
             nameservers:
                 addresses:
                     - 127.0.0.1

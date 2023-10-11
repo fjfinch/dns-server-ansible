@@ -1,5 +1,5 @@
 ---
-- name: 'HOSTNAME : disable updating hostname by cloud-init'
+- name: 'HOSTNAME : disable cloud-init updating hostname'
   ansible.builtin.lineinfile:
     path: /etc/cloud/cloud.cfg
     search_string: '{{ item.search_string }}'
@@ -10,14 +10,14 @@
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: 'HOSTNAME : change hostname in /etc/hosts'
+- name: 'HOSTNAME : change hostname'
+  ansible.builtin.hostname:
+    name: '{{ device_hostname }}'
+  become: true
+
+- name: 'HOSTNAME : change name in /etc/hosts'
   ansible.builtin.lineinfile:
     path: /etc/hosts
     search_string: 127.0.1.1
     line: 127.0.1.1 {{ device_hostname }}
-  become: true
-
-- name: 'HOSTNAME : change hostname'
-  ansible.builtin.hostname:
-    name: '{{ device_hostname }}'
   become: true

@@ -5,26 +5,26 @@
         path: /etc/systemd/resolved.conf
         search_string: '#DNSStubListener=yes'
         line: 'DNSStubListener=no'
-      register: out
+      register: stub_resolver
 
     - name: 'DOCKER - STUB : remove current file'
       ansible.builtin.file:
         path: /etc/resolv.conf
         state: absent
-      when: out.changed
+      when: stub_resolver.changed
 
     - name: 'DOCKER - STUB : create new symbolic link'
       ansible.builtin.file:
         src: /run/systemd/resolve/resolv.conf
         dest: /etc/resolv.conf
         state: link
-      when: out.changed
+      when: stub_resolver.changed
 
     - name: 'DOCKER - STUB : restart systemd-resolved service'
       ansible.builtin.service:
         name: systemd-resolved
         state: restarted
-      when: out.changed
+      when: stub_resolver.changed
   become: true
   when: ansible_distribution == 'Ubuntu'
 

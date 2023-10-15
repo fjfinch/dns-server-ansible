@@ -10,15 +10,15 @@
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: 'HOSTNAME : change hostname'
-  ansible.builtin.hostname:
-    name: '{{ device_hostname }}'
-  become: true
-
 - name: 'HOSTNAME : change name in /etc/hosts'
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: '^127\.0\.1\.1(\s*)'
     line: '127.0.1.1\1{{ device_hostname }}'
     backrefs: true
+  become: true
+
+- name: 'HOSTNAME : change hostname'
+  ansible.builtin.hostname:
+    name: '{{ device_hostname }}'
   become: true

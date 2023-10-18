@@ -15,6 +15,7 @@ services:
     restart: unless-stopped
     environment:
       TZ: Europe/Amsterdam
+      WEBPASSWORD: finch # CHANGE THIS
       PIHOLE_DNS_: 127.0.0.1#5335
       DNSMASQ_LISTENING: local # local default
       DNS_FQDN_REQUIRED: "true" # true default

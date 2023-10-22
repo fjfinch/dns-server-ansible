@@ -17,9 +17,9 @@ services:
       TZ: Europe/Amsterdam
       WEBPASSWORD: finch # CHANGE THIS
       PIHOLE_DNS_: 127.0.0.1#5335
-      DNSMASQ_LISTENING: local # local default
-      DNS_FQDN_REQUIRED: "true" # true default
-      DNS_BOGUS_PRIV: "true" # true default
+      DNSMASQ_LISTENING: local
+      DNS_FQDN_REQUIRED: "true"
+      DNS_BOGUS_PRIV: "true"
       DNSSEC: "true"
       REV_SERVER: "true"
       REV_SERVER_CIDR: "${REV_SERVER_CIDR}"

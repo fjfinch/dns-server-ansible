@@ -48,7 +48,9 @@
 - name: 'DOCKER : create containers'
   community.docker.docker_compose:
     project_src: '{{ item.project_src }}'
-    recreate: always # might remove - not necessary
+    build: true
+    pull: true
+#    recreate: always # not always necessary
   loop:
     - { project_src: files/pihole }
     - { project_src: files/unbound }

@@ -34,14 +34,18 @@ When the playbook executes the task *netplan*, it will give the device a static 
 
 Pihole container need some extra configuration:
 ```bash
-sudo docker exec -it pihole pihole -a -p
+Change password:
+(in CLI) sudo docker exec -it pihole pihole -a -p # default password = finch
 
-(in GUI) add block lists
+Add block lists:
+(in GIU) go to the 'Adlists' page
     https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt                  - Advertising
     https://v.firebog.net/hosts/AdguardDNS.txt                                                  - Advertising
     https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt     - Tracking & Telemetry
     https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts             - Tracking & Telemetry
     https://v.firebog.net/hosts/Easyprivacy.txt                                                 - Tracking & Telemetry
 
-sudo docker exec -it pihole pihole updateGravity
+Update gravity:
+(in GUI) in the tool tab, go to the 'Update Gravity' page
+(in CLI) sudo docker exec -it pihole pihole updateGravity
 ```

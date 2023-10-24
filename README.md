@@ -18,19 +18,20 @@ sudo apt update && sudo apt install -y git pipx && pipx install ansible --includ
 git clone https://github.com/fjfinch/dns-server-ansible.git
 ```
 
-Go to the `ansible/` folder and change the network variables in `main.yml`.
-
 3 - Pull required roles:
 ```bash
 ansible-galaxy collection install -r requirements.yml
 ```
 
-4 - Execute the playbook:
+4.1 - Change the variables in `main.yml`
+4.2 - Execute the playbook:
 ```bash
 ansible-playbook main.yml -K
 ```
 
-When the playbook executes the task *netplan*, it will give the device a static IP. If you used SSH to connect, the session will automatically terminate.
+---
+
+Note: When the playbook executes the task *netplan*, it will give the device a static IP. If you used SSH to connect to your device, the session will automatically terminate. Login with the new IP address.
 
 Pihole container need some extra configuration:
 ```bash

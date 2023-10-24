@@ -23,8 +23,7 @@ git clone https://github.com/fjfinch/dns-server-ansible.git
 ansible-galaxy collection install -r requirements.yml
 ```
 
-4.1 - Change the variables in `main.yml`
-4.2 - Execute the playbook:
+4 - Change the variables in `main.yml` & execute the playbook:
 ```bash
 ansible-playbook main.yml -K
 ```

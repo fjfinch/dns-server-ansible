@@ -4,12 +4,9 @@ network:
     renderer: networkd
     ethernets:
         '{{ device_interface }}':
-            dhcp4: false
-            addresses:
-                - '{{ device_ip }}{{ network_cidr }}'
-            routes:
-                - to: default
-                  via: '{{ gateway_ip }}'
+            dhcp4: true
+            dhcp4-overrides:
+                use-dns: false
             nameservers:
                 addresses:
                     - 127.0.0.1

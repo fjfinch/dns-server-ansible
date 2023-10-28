@@ -30,8 +30,6 @@ ansible-playbook main.yml -K
 
 ---
 
-Note: When the playbook executes the task *netplan*, it will give the device a static IP. If you used SSH to connect to your device, the session will automatically terminate. Login with the new IP address.
-
 Pihole container need some extra configuration:
 ```bash
 Change password:

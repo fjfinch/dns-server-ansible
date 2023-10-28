@@ -1,0 +1,57 @@
+---
+- block:
+    - name: 'DOCKER - STUB : disable stub resolver'
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/resolved.conf
+        search_string: '#DNSStubListener=yes'
+        line: 'DNSStubListener=no'
+      register: stub_resolver
+
+    - name: 'DOCKER - STUB : remove current file'
+      ansible.builtin.file:
+        path: /etc/resolv.conf
+        state: absent
+      when: stub_resolver.changed
+
+    - name: 'DOCKER - STUB : create new symbolic link'
+      ansible.builtin.file:
+        src: /run/systemd/resolve/resolv.conf
+        dest: /etc/resolv.conf
+        state: link
+      when: stub_resolver.changed
+
+    - name: 'DOCKER - STUB : restart systemd-resolved service'
+      ansible.builtin.service:
+        name: systemd-resolved
+        state: restarted
+      when: stub_resolver.changed
+  become: true
+  when: ansible_distribution == 'Ubuntu'
+
+- name: 'DOCKER : install docker-compose'
+  ansible.builtin.apt:
+    name: docker-compose
+  become: true
+
+- name: 'DOCKER : copy docker env file'
+  ansible.builtin.template:
+    src: templates/.env.j2
+    dest: files/pihole/.env
+    mode: '0644'
+  become: true
+
+- name: 'DOCKER : create volumes'
+  community.docker.docker_volume:
+    name: volume_pihole_general
+  become: true
+
+- name: 'DOCKER : create containers'
+  community.docker.docker_compose:
+    project_src: '{{ item.project_src }}'
+    build: true
+    pull: true
+#    recreate: always # not always necessary
+  loop:
+    - { project_src: files/pihole }
+    - { project_src: files/unbound }
+  become: true

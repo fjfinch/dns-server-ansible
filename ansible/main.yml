@@ -9,7 +9,7 @@
     gateway_ip: 192.168.178.1         # used in: templates/.env.j2
     device_ip: 192.168.178.4          # used in: templates/.env.j2
     device_hostname: Raspberry-Pi-4B  # used in: tasks/1_hostname.yml
-    device_interface: eth0            # used in: templates/netplan_static_ip.yaml.j2
+    device_interface: eth0            # used in: templates/netplan_dhcp.yaml.j2
 
   pre_tasks:
     - name: 'Connect to host & retrieve min facts'

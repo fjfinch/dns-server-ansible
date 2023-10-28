@@ -1,8 +1,8 @@
 ---
-- name: 'NETPLAN : copy static ip template'
+- name: 'NETPLAN : copy dhcp template'
   ansible.builtin.template:
-    src: templates/netplan_static_ip.yaml.j2
-    dest: /etc/netplan/static_ip.yaml
+    src: templates/netplan_dhcp.yaml.j2
+    dest: /etc/netplan/netplan_dhcp.yaml
     mode: '0644'
   become: true
   register: netplan

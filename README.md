@@ -30,7 +30,7 @@ ansible-playbook main.yml -K
 
 ---
 
-Pihole container need some extra configuration:
+Pi-hole container need some extra configuration:
 ```bash
 Change password:
 (in CLI) sudo docker exec -it pihole pihole -a -p # default password = finch

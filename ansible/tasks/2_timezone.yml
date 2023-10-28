@@ -1,5 +1,0 @@
----
-- name: 'TIMEZONE : set correct zone'
-  community.general.timezone:
-    name: Europe/Amsterdam
-  become: true

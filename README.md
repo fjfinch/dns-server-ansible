@@ -1,9 +1,9 @@
 # dns-server-ansible
 Ansible playbook to deploy and configure Pi-hole & Unbound containers. Tested on Ubuntu (x86 and ARM).
 
-Note 1) Internet access is required to install stuff, and your current network configuration is used for the Pi-hole container and the netplan task.
+Note 1: Internet access is required to install stuff, and your current network configuration is used for the Pi-hole container and the netplan task.
 
-Note 2) If you have a *custom* network config, disable the netplan task. Because this will - either override your config or create conflicts. Just make sure your config has the dns nameserver point to *127.0.0.1*. So that your host also uses Pi-hole directly.
+Note 2: Your device will either use whatever is served by DHCP, or whatever static network setting you've configured. If you *have* a custom network config, disable the netplan task. Just make sure your config has the devices nameserver point to *127.0.0.1*. So that the device is also using Pi-hole and Unbound.
 
 ## Install & setup
 To use Ansible, a couple of tools are required:

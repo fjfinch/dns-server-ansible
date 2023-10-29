@@ -1,5 +1,5 @@
 # dns-server-ansible
-Ansible playbook to deploy and configure Pi-hole & Unbound Docker containers. Tested on Ubuntu ARM64 (Raspberry Pi).
+Ansible playbook to deploy and configure Pi-hole & Unbound containers. Tested on Ubuntu (x86 and ARM).
 
 Note: Make sure your device already obtained an IP address through DHCP. Internet access is required to install tools, and the network variables are used for the Pi-hole container and the netplan task.
 

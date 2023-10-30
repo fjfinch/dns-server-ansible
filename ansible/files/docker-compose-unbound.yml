@@ -1,0 +1,14 @@
+---
+version: '3'
+
+services:
+  unbound:
+    build: unbound/
+    container_name: unbound
+    hostname: unbound
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      TZ: "${DEVICE_TIMEZONE}"
+    volumes:
+      - ./unbound/unbound.conf:/etc/unbound/unbound.conf

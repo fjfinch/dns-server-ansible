@@ -14,7 +14,7 @@ services:
     network_mode: host
     restart: unless-stopped
     environment:
-      TZ: Europe/Amsterdam
+      TZ: "${DEVICE_TIMEZONE}"
       WEBPASSWORD: finch # CHANGE THIS
       PIHOLE_DNS_: 127.0.0.1#5335
       DNSMASQ_LISTENING: local

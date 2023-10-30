@@ -5,8 +5,8 @@
   become_method: sudo
 
   vars:
-    device_hostname: Raspberry-Pi-4B  # used in: tasks/1_hostname.yml
-    device_timezone: Europe/Amsterdam # used in: tasks/2_timezone.yml
+    device_hostname: Raspberry-Pi-4B   # used in: tasks/1_hostname.yml
+    device_timezone: Europe/Amsterdam  # used in: tasks/2_timezone.yml
 
   pre_tasks:
     - name: 'Connect to host & retrieve facts'

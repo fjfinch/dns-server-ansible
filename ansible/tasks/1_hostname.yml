@@ -1,14 +1,29 @@
 ---
-- name: 'HOSTNAME : disable cloud-init updating hostname'
-  ansible.builtin.lineinfile:
-    path: /etc/cloud/cloud.cfg
-    search_string: '{{ item.search_string }}'
-    line: '{{ item.line }}'
-  loop:
-    - { search_string: 'preserve_hostname: false', line: 'preserve_hostname: true' }
-    - { search_string: '- update_etc_hosts', line: '#- update_etc_hosts' }
+- name: 'HOSTNAME - CLOUD-INIT : get info about cloud-init'
+  ansible.builtin.systemd:
+    name: cloud-init.service
+  register: service_info
+
+- name: 'HOSTNAME - CLOUD-INIT : disable cloud-init'
+  ansible.builtin.file:
+    path: /etc/cloud/cloud-init.disabled
+    state: touch
+    mode: '0644'
+    modification_time: preserve
+    access_time: preserve
   become: true
-  when: ansible_distribution == 'Ubuntu'
+  when: service_info.status.ActiveState == 'active'
+
+#- name: 'HOSTNAME : disable cloud-init updating hostname'
+#  ansible.builtin.lineinfile:
+#    path: /etc/cloud/cloud.cfg
+#    search_string: '{{ item.search_string }}'
+#    line: '{{ item.line }}'
+#  loop:
+#    - { search_string: 'preserve_hostname: false', line: 'preserve_hostname: true' }
+#    - { search_string: '- update_etc_hosts', line: '#- update_etc_hosts' }
+#  become: true
+#  when: service_info.status.ActiveState == 'active'
 
 - name: 'HOSTNAME : change name in /etc/hosts'
   ansible.builtin.lineinfile:

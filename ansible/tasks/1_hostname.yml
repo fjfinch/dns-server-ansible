@@ -1,7 +1,7 @@
 ---
 - import_tasks: tasks/cloud-init.yml
 
-- name: 'HOSTNAME : change name in /etc/hosts'
+- name: 'HOSTNAME : change hostname in /etc/hosts'
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: '^127\.0\.1\.1(\s*)'
@@ -9,7 +9,7 @@
     backrefs: true
   become: true
 
-- name: 'HOSTNAME : change hostname'
+- name: 'HOSTNAME : change systems hostname'
   ansible.builtin.hostname:
     name: '{{ device_hostname }}'
   become: true

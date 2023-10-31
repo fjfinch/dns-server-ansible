@@ -13,7 +13,7 @@
     mode: '0644'
   become: true
 
-- name: 'DOCKER : create volumes'
+- name: 'DOCKER : create volume'
   community.docker.docker_volume:
     name: volume_pihole_general
   become: true

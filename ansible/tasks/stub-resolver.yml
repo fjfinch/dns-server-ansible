@@ -1,6 +1,6 @@
 ---
 - block:
-    - name: 'STUB : disable stub resolver'
+    - name: 'STUB : disable stub in config'
       ansible.builtin.lineinfile:
         path: /etc/systemd/resolved.conf
         search_string: '#DNSStubListener=yes'
@@ -8,18 +8,18 @@
       register: stub_resolver
 
     - block:
-        - name: 'STUB : remove current file'
+        - name: 'STUB : remove current resolver'
           ansible.builtin.file:
             path: /etc/resolv.conf
             state: absent
 
-        - name: 'STUB : create new symbolic link'
+        - name: 'STUB : create new resolver with sym link'
           ansible.builtin.file:
             src: /run/systemd/resolve/resolv.conf
             dest: /etc/resolv.conf
             state: link
 
-        - name: 'STUB : restart systemd-resolved'
+        - name: 'STUB : restart service'
           ansible.builtin.service:
             name: systemd-resolved
             state: restarted

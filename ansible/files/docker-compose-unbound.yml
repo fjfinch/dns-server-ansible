@@ -3,7 +3,7 @@ version: '3'
 
 services:
   unbound:
-    build: unbound/
+    image: mvance/unbound-rpi:latest
     container_name: unbound
     hostname: unbound
     network_mode: host
@@ -11,4 +11,6 @@ services:
     environment:
       TZ: "${DEVICE_TIMEZONE}"
     volumes:
-      - ./unbound/unbound.conf:/etc/unbound/unbound.conf
+      - ./unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf
+    healthcheck:
+      disable: true

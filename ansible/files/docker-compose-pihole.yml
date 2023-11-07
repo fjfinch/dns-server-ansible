@@ -24,6 +24,7 @@ services:
       REV_SERVER: "true"
       REV_SERVER_CIDR: "${REV_SERVER_CIDR}"
       REV_SERVER_TARGET: "${REV_SERVER_TARGET}"
+#      REV_SERVER_DOMAIN: "${REV_SERVER_DOMAIN}"
       FTLCONF_LOCAL_IPV4: "${FTLCONF_LOCAL_IPV4}"
       WEBTHEME: default-darker
     volumes:

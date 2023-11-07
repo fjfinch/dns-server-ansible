@@ -22,4 +22,3 @@
     - import_tasks: tasks/1_hostname.yml
     - import_tasks: tasks/2_timezone.yml
     - import_tasks: tasks/3_docker.yml
-#    - import_tasks: tasks/4_netplan.yml # after 3_docker - stub-resolver

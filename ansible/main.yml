@@ -5,8 +5,8 @@
   become_method: sudo
 
   vars:
-    device_hostname: Raspberry-Pi-4B   # used in: tasks/1_hostname.yml
-    device_timezone: Europe/Amsterdam  # used in: tasks/2_timezone.yml
+    device_hostname: Raspberry-Pi-4B   # used in: GITHUB.HOSTNAME.ROLE
+    device_timezone: Europe/Amsterdam  # used in: GITHUB.TIMEZONE.ROLE
 
   pre_tasks:
     - name: 'Connect to host & retrieve facts'
@@ -17,8 +17,9 @@
 
   roles:
     - GITHUB.UPDATE.ROLE
+    - GITHUB.CLOUD_INIT.ROLE
+    - GITHUB.HOSTNAME.ROLE
+    - GITHUB.TIMEZONE.ROLE
 
   tasks:
-    - import_tasks: tasks/1_hostname.yml
-    - import_tasks: tasks/2_timezone.yml
-    - import_tasks: tasks/3_docker.yml
+    - import_tasks: tasks/docker.yml

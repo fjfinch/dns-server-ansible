@@ -3,3 +3,6 @@ collections:
   - name: community.general
   - name: community.docker
   - name: git+https://github.com/fjfinch/ansible-namespace.git#/UPDATE
+  - name: git+https://github.com/fjfinch/ansible-namespace.git#/CLOUD_INIT
+  - name: git+https://github.com/fjfinch/ansible-namespace.git#/HOSTNAME
+  - name: git+https://github.com/fjfinch/ansible-namespace.git#/TIMEZONE

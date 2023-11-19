@@ -1,6 +1,4 @@
 ---
-- import_tasks: tasks/stub-resolver.yml
-
 - name: 'DOCKER : install docker-compose'
   ansible.builtin.apt:
     name: docker-compose

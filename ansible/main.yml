@@ -22,4 +22,5 @@
     - GITHUB.TIMEZONE.ROLE
 
   tasks:
-    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/1_stub-resolver.yml
+    - import_tasks: tasks/2_docker.yml

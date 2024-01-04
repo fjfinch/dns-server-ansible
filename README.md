@@ -3,7 +3,7 @@ Ansible playbook to deploy and configure Pi-hole & Unbound containers. Tested on
 
 Note 1: Pi-hole requires information about the hosts network for it's configuration (device ip / gateway ip / subnet prefix / etc.). So make sure the host has network connectivity.
 
-Note 2: You can consider using Pi-hole for the host system. Configure *127.0.0.1* to be the hosts nameserver. This however has one drawback; if the Pi-hole fails, the host does not have a working DNS setup and might prevent users from repairing their Pi-hole installation.
+Note 2: You can consider using Pi-hole for the host system -> configure *127.0.0.1* to be the hosts nameserver. This however has one drawback: if the Pi-hole fails, the host does not have a working DNS setup and might prevent you from repairing the Pi-hole installation (if you don't have much networking experience).
 
 ## Install & setup
 To use Ansible, a couple of tools are required:
@@ -27,7 +27,7 @@ git clone https://github.com/fjfinch/dns-server-ansible.git
 ansible-galaxy collection install -r requirements.yml
 ```
 
-4 - Change the variables in `main.yml` & execute the playbook:
+4 - In `ansible/` change the variables in `main.yml` & execute the playbook:
 ```bash
 ansible-playbook main.yml -K
 ```

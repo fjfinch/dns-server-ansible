@@ -3,8 +3,9 @@
     - name: 'STUB : disable stub in config'
       ansible.builtin.lineinfile:
         path: /etc/systemd/resolved.conf
-        search_string: '#DNSStubListener=yes'
+        regexp: '#?DNSStubListener=yes'
         line: 'DNSStubListener=no'
+        backrefs: yes
       register: stub_resolver
 
     - block:

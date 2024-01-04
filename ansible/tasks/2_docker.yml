@@ -29,7 +29,7 @@
     pause: 3
   become: true
 
-- name: 'DOCKER : rm unused images'
+- name: 'DOCKER : remove unused images'
   community.docker.docker_prune:
     images: true
   become: true

@@ -28,3 +28,8 @@
   loop_control:
     pause: 3
   become: true
+
+- name: 'DOCKER : rm unused images'
+  community.docker.docker_prune:
+    images: true
+  become: true

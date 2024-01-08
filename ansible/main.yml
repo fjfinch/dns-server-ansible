@@ -16,11 +16,11 @@
           - 'network'
 
   roles:
-    - GITHUB.UPDATE.ROLE
-    - GITHUB.CLOUD_INIT.ROLE
-    - GITHUB.HOSTNAME.ROLE
-    - GITHUB.TIMEZONE.ROLE
+    - role: GITHUB.UPDATE.ROLE
+    - role: GITHUB.CLOUD_INIT.ROLE # annoying but necessary
+    - role: GITHUB.HOSTNAME.ROLE
+    - role: GITHUB.TIMEZONE.ROLE
 
   tasks:
-    - import_tasks: tasks/1_stub-resolver.yml
+    - import_tasks: tasks/1_stub-resolver.yml # used for pi-hole on ubuntu
     - import_tasks: tasks/2_docker.yml

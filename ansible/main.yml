@@ -18,7 +18,6 @@
 
   roles:
     - role: GITHUB.UPDATE.ROLE
-    - role: GITHUB.CLOUD_INIT.ROLE # annoying but necessary
     - role: GITHUB.HOSTNAME.ROLE
     - role: GITHUB.TIMEZONE.ROLE
 

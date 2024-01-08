@@ -24,6 +24,11 @@
           ansible.builtin.service:
             name: systemd-resolved
             state: restarted
+
+        - name: 'STUB : add temporary 1.1.1.1 dns'
+          ansible.builtin.lineinfile:
+            path: /etc/resolv.conf
+            line: 'nameserver 1.1.1.1'
       when: stub_resolver.changed
   become: true
   when: ansible_distribution == 'Ubuntu'

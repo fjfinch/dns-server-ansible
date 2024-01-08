@@ -7,6 +7,7 @@
   vars:
     device_hostname: Raspberry-Pi-5    # used in: GITHUB.HOSTNAME.ROLE
     device_timezone: Europe/Amsterdam  # used in: GITHUB.TIMEZONE.ROLE & files/docker-compose*.yml
+    pihole_password: finch
 
   pre_tasks:
     - name: 'Connect to host & retrieve facts'

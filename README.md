@@ -36,9 +36,6 @@ ansible-playbook main.yml -K
 
 Pi-hole container need some extra configuration:
 ```bash
-Change password:
-(in CLI) sudo docker exec -it pihole pihole -a -p # default password = finch
-
 Add block lists:
 (in GIU) go to the 'Adlists' page
     https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt                  - Advertising

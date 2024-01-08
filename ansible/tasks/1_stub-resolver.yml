@@ -5,7 +5,7 @@
         path: /etc/systemd/resolved.conf
         regexp: '#?DNSStubListener=yes'
         line: 'DNSStubListener=no'
-        backrefs: yes
+        backrefs: true
       register: stub_resolver
 
     - block:

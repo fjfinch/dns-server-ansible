@@ -14,7 +14,7 @@ To use this repo, a couple of tools are required:
 
 1 - Oneliner to install all above:
 ```bash
-sudo apt update && sudo apt install -y git pipx && pipx install ansible --include-deps && pipx ensurepath && exec $SHELL
+sudo apt update && sudo apt install -y git pipx && pipx install ansible --include-deps && . ~/.profile
 ```
 
 2 - Clone this repository:
@@ -22,12 +22,12 @@ sudo apt update && sudo apt install -y git pipx && pipx install ansible --includ
 git clone https://github.com/fjfinch/dns-server-ansible.git
 ```
 
-3 - Pull required roles:
+3 - Within `ansible/` - pull the required roles:
 ```bash
 ansible-galaxy collection install -r requirements.yml
 ```
 
-4 - In `ansible/`, change the variables in `main.yml` & execute the playbook:
+4 - Within `ansible/` - change the variables in `main.yml` & execute the playbook:
 ```bash
 ansible-playbook main.yml -K
 ```

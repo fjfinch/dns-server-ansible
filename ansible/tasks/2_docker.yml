@@ -1,9 +1,4 @@
 ---
-- name: 'DOCKER : install docker-compose'
-  ansible.builtin.apt:
-    name: docker-compose
-  become: true
-
 - name: 'DOCKER : copy docker env file'
   ansible.builtin.template:
     src: templates/.env.j2

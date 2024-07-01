@@ -5,7 +5,6 @@
   become_method: sudo
 
   vars:
-    device_hostname: Raspberry-Pi-5
     device_timezone: Europe/Amsterdam
     pihole_password: finch
 
@@ -18,8 +17,7 @@
 
   roles:
     - role: GITHUB.UPDATE.ROLE
-    - role: GITHUB.HOSTNAME.ROLE
-    - role: GITHUB.TIMEZONE.ROLE
+    - role: GITHUB.DOCKER.ROLE
 
   tasks:
     - import_tasks: tasks/1_stub-resolver.yml # used for pi-hole on ubuntu

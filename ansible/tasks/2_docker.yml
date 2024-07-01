@@ -12,10 +12,10 @@
   become: true
 
 - name: 'DOCKER : create containers'
-  community.docker.docker_compose:
+  community.docker.docker_compose_v2:
     project_src: files/
     files: '{{ item.files }}'
-    pull: true
+    pull: always
 #    recreate: always
   loop:
     - { files: docker-compose-pihole.yml }

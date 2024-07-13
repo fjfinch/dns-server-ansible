@@ -1,4 +1,6 @@
 ---
+name: pihole
+
 services:
   pihole:
     image: pihole/pihole:latest

@@ -1,4 +1,6 @@
 ---
+name: unbound
+
 services:
   unbound:
     image: "${UNBOUND_IMAGE}"

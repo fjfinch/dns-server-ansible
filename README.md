@@ -36,15 +36,19 @@ ansible-playbook main.yml -K
 
 Pi-hole container need some extra configuration:
 ```bash
-Add block lists:
-(in GIU) go to the 'Adlists' page
-    https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt                  - Advertising
-    https://v.firebog.net/hosts/AdguardDNS.txt                                                  - Advertising
-    https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt     - Tracking & Telemetry
-    https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts             - Tracking & Telemetry
-    https://v.firebog.net/hosts/Easyprivacy.txt                                                 - Tracking & Telemetry
+Add blocklists. Go to the 'Lists' page, and paste the URLs below all in once in the 'Address' box:
+  https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
+  https://v.firebog.net/hosts/AdguardDNS.txt
+  https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+  https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
+  https://v.firebog.net/hosts/Easyprivacy.txt
 
-Update gravity:
-(in GUI) in the tool tab, go to the 'Update Gravity' page
-(in CLI) sudo docker exec -it pihole pihole updateGravity
+The lists are, in order:
+  Advertising
+  Advertising
+  Tracking & Telemetry
+  Tracking & Telemetry
+  Tracking & Telemetry
+
+Update gravity. In the 'Tools' tab, go to the 'Update Gravity' page. Or run 'sudo docker exec -it pihole pihole updateGravity' in the CLI.
 ```

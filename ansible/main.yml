@@ -5,7 +5,6 @@
   become_method: sudo
 
   vars:
-    device_timezone: Europe/Amsterdam
     pihole_password: finch
 
   pre_tasks:

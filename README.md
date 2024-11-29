@@ -27,21 +27,23 @@ git clone https://github.com/fjfinch/dns-server-ansible.git
 ansible-galaxy collection install -r requirements.yml
 ```
 
-4 - Within `ansible/` - change the variables in `main.yml` & execute the playbook:
+4 - Within `ansible/` - change the *password* variable in `main.yml` & execute the playbook:
 ```bash
 ansible-playbook main.yml -K
 ```
 
 ---
 
-Pi-hole container need some extra configuration:
+Extra blocklists for Pi-hole are optional. Go to the 'Lists' page, and paste the URLs below all in once in the 'Address' box:
 ```bash
-Add blocklists. Go to the 'Lists' page, and paste the URLs below all in once in the 'Address' box:
   https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
   https://v.firebog.net/hosts/AdguardDNS.txt
   https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
   https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
   https://v.firebog.net/hosts/Easyprivacy.txt
+  https://urlhaus.abuse.ch/downloads/hostfile/
+  https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
+  https://v.firebog.net/hosts/RPiList-Malware.txt
 
 The lists are, in order:
   Advertising
@@ -49,6 +51,9 @@ The lists are, in order:
   Tracking & Telemetry
   Tracking & Telemetry
   Tracking & Telemetry
+  Malicious
+  Malicious
+  Malicious
+```
 
 Update gravity. In the 'Tools' tab, go to the 'Update Gravity' page. Or run 'sudo docker exec -it pihole pihole updateGravity' in the CLI.
-```

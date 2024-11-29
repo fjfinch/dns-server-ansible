@@ -7,7 +7,7 @@
 
 - name: 'DOCKER : create volume'
   community.docker.docker_volume:
-    name: volume_pihole_general
+    name: volume_pihole
   become: true
 
 - name: 'DOCKER : create containers'

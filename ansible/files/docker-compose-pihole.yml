@@ -4,28 +4,29 @@ name: pihole
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:latest
+    image: pihole/pihole:development
     network_mode: host
     restart: unless-stopped
     environment:
       TZ: "${DEVICE_TIMEZONE}"
-      WEBPASSWORD: "${PIHOLE_PASSWORD}"
-      PIHOLE_DNS_: 127.0.0.1#5335
-      DNSMASQ_LISTENING: local
-      DNS_FQDN_REQUIRED: "true"
-      DNS_BOGUS_PRIV: "true"
-      DNSSEC: "true"
-      REV_SERVER: "true"
-      REV_SERVER_CIDR: "${REV_SERVER_CIDR}"
-      REV_SERVER_TARGET: "${REV_SERVER_TARGET}"
-#      REV_SERVER_DOMAIN: "${REV_SERVER_DOMAIN}"
-      FTLCONF_LOCAL_IPV4: "${FTLCONF_LOCAL_IPV4}"
-      WEBTHEME: default-darker
+
+      FTLCONF_dns_upstreams: "127.0.0.1#5335"
+      FTLCONF_dns_listeningMode: "local"
+      FTLCONF_dns_domainNeeded: true
+      FTLCONF_dns_bogusPriv: true
+      FTLCONF_dns_dnssec: true
+      FTLCONF_dns_revServers: "true,${NETWORK_CIDR},${NETWORK_GATEWAY},${NETWORK_DOMAIN}"
+      FTLCONF_dns_piholePTR: "HOSTNAMEFQDN"
+
+      FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
+      FTLCONF_webserver_api_maxClients: 20
+      FTLCONF_webserver_interface_theme: "default-darker"
+
+      FTLCONF_dns_domain: "${NETWORK_DOMAIN}"
+      FTLCONF_webserver_domain: "${NETWORK_DOMAIN}"
     volumes:
-      - volume_pihole_dnsmasq:/etc/dnsmasq.d/
-      - volume_pihole_general:/etc/pihole/
+      - volume_pihole:/etc/pihole/
 
 volumes:
-  volume_pihole_dnsmasq:
-  volume_pihole_general:
+  volume_pihole:
     external: true

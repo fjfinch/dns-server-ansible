@@ -4,7 +4,6 @@ name: unbound
 services:
   unbound:
     container_name: unbound
-    hostname: unbound
     image: "${UNBOUND_IMAGE}"
     network_mode: host
     restart: unless-stopped

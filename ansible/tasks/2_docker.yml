@@ -19,8 +19,8 @@
   loop:
     - { files: docker-compose-pihole.yml }
     - { files: docker-compose-unbound.yml }
-  loop_control:
-    pause: 3
+#  loop_control:
+#    pause: 3
   become: true
 
 - name: 'DOCKER : remove unused images'

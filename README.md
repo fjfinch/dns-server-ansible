@@ -22,7 +22,7 @@ sudo apt update && sudo apt install -y git pipx && pipx install ansible --includ
 git clone https://github.com/fjfinch/dns-server-ansible.git
 ```
 
-3 Pull the required roles:
+3 - Pull the required roles:
 ```bash
 ansible-galaxy collection install -r requirements.yml
 ```

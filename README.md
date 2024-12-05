@@ -28,7 +28,7 @@ ansible-galaxy collection install -r requirements.yml
 ```
 
 4 - Execute the playbook:
-> Note: change the *password* variable in `main.yml`.
+> Note: change the *password* variable in `main.yml`
 ```bash
 ansible-playbook main.yml -K
 ```

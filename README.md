@@ -22,12 +22,13 @@ sudo apt update && sudo apt install -y git pipx && pipx install ansible --includ
 git clone https://github.com/fjfinch/dns-server-ansible.git
 ```
 
-3 - Within `ansible/` - pull the required roles:
+3 Pull the required roles:
 ```bash
 ansible-galaxy collection install -r requirements.yml
 ```
 
-4 - Within `ansible/` - change the *password* variable in `main.yml` & execute the playbook:
+4 - Execute the playbook:
+> Change the *password* variable in `main.yml`.
 ```bash
 ansible-playbook main.yml -K
 ```

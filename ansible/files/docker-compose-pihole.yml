@@ -17,11 +17,19 @@ services:
       FTLCONF_dns_revServers: "true,${NETWORK_CIDR},${NETWORK_GATEWAY},${NETWORK_DOMAIN}"
       FTLCONF_dns_cache_optimizer: -1
       FTLCONF_webserver_domain: "${NETWORK_DOMAIN}" # test
+      FTLCONF_webserver_session_timeout: 2592000 # 30 days
       FTLCONF_webserver_interface_theme: "default-darker"
       FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
       FTLCONF_webserver_api_maxClients: 20
+      FTLCONF_ntp_ipv4_active: false # time problem
+      FTLCONF_ntp_ipv6_active: false # time problem
+      FTLCONF_ntp_sync_active: false # time problem
+#    cap_add: # time problem
+#      - SYS_TIME # time problem
     volumes:
       - volume_pihole:/etc/pihole/
+    healthcheck:
+      disable: true
 
 volumes:
   volume_pihole:

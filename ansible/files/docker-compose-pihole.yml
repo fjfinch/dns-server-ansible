@@ -12,15 +12,15 @@ services:
       FTLCONF_dns_upstreams: "127.0.0.1#5335"
       FTLCONF_dns_piholePTR: "NONE" # "HOSTNAMEFQDN"
       FTLCONF_dns_domainNeeded: true
-      FTLCONF_dns_domain: "${NETWORK_DOMAIN}" # test
+      FTLCONF_dns_domain: "${NETWORK_DOMAIN}"
       FTLCONF_dns_dnssec: true
       FTLCONF_dns_revServers: "true,${NETWORK_CIDR},${NETWORK_GATEWAY},${NETWORK_DOMAIN}"
       FTLCONF_dns_cache_optimizer: -1
-      FTLCONF_webserver_domain: "${NETWORK_DOMAIN}" # test
+      FTLCONF_webserver_domain: "${NETWORK_DOMAIN}"
       FTLCONF_webserver_session_timeout: 2592000 # 30 days
       FTLCONF_webserver_interface_theme: "default-darker"
       FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
-      FTLCONF_webserver_api_maxClients: 20
+      FTLCONF_webserver_api_maxClients: 32
       FTLCONF_ntp_ipv4_active: false # time problem
       FTLCONF_ntp_ipv6_active: false # time problem
       FTLCONF_ntp_sync_active: false # time problem

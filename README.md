@@ -46,6 +46,14 @@ Extra blocklists for Pi-hole are optional. Go to the 'Lists' page, and paste the
   https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
   https://v.firebog.net/hosts/RPiList-Malware.txt
 
+https://v.firebog.net/hosts/AdguardDNS.txt
+https://v.firebog.net/hosts/Easyprivacy.txt
+https://v.firebog.net/hosts/RPiList-Malware.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
+https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
+https://urlhaus.abuse.ch/downloads/hostfile/
+
 The lists are, in order:
   Advertising
   Advertising
@@ -55,6 +63,14 @@ The lists are, in order:
   Malicious
   Malicious
   Malicious
+
+Advertising
+Tracking & Telemetry
+Malicious
+All
+Malicious
+Advertising
+Malicious
 ```
 
 Update gravity. In the 'Tools' tab, go to the 'Update Gravity' page. Or run 'sudo docker exec -it pihole pihole updateGravity' in the CLI.

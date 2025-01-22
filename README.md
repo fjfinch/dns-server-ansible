@@ -37,36 +37,16 @@ ansible-playbook main.yml -K
 
 Extra blocklists for Pi-hole are optional. Go to the 'Lists' page, and paste the URLs below all in once in the 'Address' box:
 ```bash
-  https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
-  https://v.firebog.net/hosts/AdguardDNS.txt
-  https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
-  https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
-  https://v.firebog.net/hosts/Easyprivacy.txt
-  https://urlhaus.abuse.ch/downloads/hostfile/
-  https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
-  https://v.firebog.net/hosts/RPiList-Malware.txt
-
 https://v.firebog.net/hosts/AdguardDNS.txt
 https://v.firebog.net/hosts/Easyprivacy.txt
-https://v.firebog.net/hosts/RPiList-Malware.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
 https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
 https://urlhaus.abuse.ch/downloads/hostfile/
 
 The lists are, in order:
-  Advertising
-  Advertising
-  Tracking & Telemetry
-  Tracking & Telemetry
-  Tracking & Telemetry
-  Malicious
-  Malicious
-  Malicious
-
 Advertising
 Tracking & Telemetry
-Malicious
 All
 Malicious
 Advertising

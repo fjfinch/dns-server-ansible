@@ -18,9 +18,7 @@
     files: '{{ item.files }}'
   loop:
     - { files: docker-compose-pihole.yml }
-    - { files: docker-compose-unbound.yml }
-#  loop_control:
-#    pause: 3
+#    - { files: docker-compose-unbound.yml }
   become: true
 
 - name: 'DOCKER : remove unused images'

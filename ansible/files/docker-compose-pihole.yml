@@ -21,11 +21,12 @@ services:
       FTLCONF_webserver_interface_theme: "default-darker"
       FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
       FTLCONF_webserver_api_maxClients: 32
-      FTLCONF_ntp_ipv4_active: false # time problem
-      FTLCONF_ntp_ipv6_active: false # time problem
-      FTLCONF_ntp_sync_active: false # time problem
-#    cap_add: # time problem
-#      - SYS_TIME # time problem
+      FTLCONF_ntp_ipv4_active: false
+      FTLCONF_ntp_ipv6_active: false
+      FTLCONF_ntp_sync_active: false
+    cap_add:
+#      - SYS_TIME # set the host's system time for NTP
+      - SYS_NICE # get some more processing time
     volumes:
       - volume_pihole:/etc/pihole/
     healthcheck:

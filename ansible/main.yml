@@ -5,7 +5,7 @@
   become_method: sudo
 
   vars:
-    pihole_password: finch
+    pihole_password: ''
 
   pre_tasks:
     - name: 'Connect to host & retrieve facts'

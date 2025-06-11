@@ -16,14 +16,15 @@ services:
       FTLCONF_dns_dnssec: true
       FTLCONF_dns_revServers: "true,${NETWORK_CIDR},${NETWORK_GATEWAY},${NETWORK_DOMAIN}"
       FTLCONF_dns_cache_optimizer: -1
+      FTLCONF_ntp_ipv4_active: false
+      FTLCONF_ntp_ipv6_active: false
+      FTLCONF_ntp_sync_active: false
+      FTLCONF_database_network_expire: 7
       FTLCONF_webserver_domain: "${NETWORK_DOMAIN}"
       FTLCONF_webserver_session_timeout: 2592000 # 30 days
       FTLCONF_webserver_interface_theme: "default-darker"
       FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
       FTLCONF_webserver_api_maxClients: 32
-      FTLCONF_ntp_ipv4_active: false
-      FTLCONF_ntp_ipv6_active: false
-      FTLCONF_ntp_sync_active: false
     cap_add:
 #      - SYS_TIME # set the host's system time for NTP
       - SYS_NICE # get some more processing time

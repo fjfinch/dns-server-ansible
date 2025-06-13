@@ -1,5 +1,5 @@
 # dns-server-ansible
-Ansible playbook to deploy and configure Pi-hole & Unbound containers. Tested on Ubuntu (x86 and ARM).
+Ansible playbook for deploying and configuring a Pi-hole (& Unbound) container. Tested on Ubuntu (x86 and ARM).
 
 Note 1: Pi-hole requires information about the hosts network for it's configuration (device ip / gateway ip / subnet prefix / etc.). So make sure the host has network connectivity.
 

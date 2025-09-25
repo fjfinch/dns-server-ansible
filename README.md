@@ -41,7 +41,7 @@ ansible-galaxy collection install -r requirements.yml
 ansible-playbook main.yml -K
 ```
 
-# Optional
+## Optional
 Extra blocklists for Pi-hole are optional. If needed, go to the 'Lists' page and add the following URLs:
 ```bash
 https://v.firebog.net/hosts/AdguardDNS.txt

@@ -19,7 +19,7 @@ services:
       FTLCONF_ntp_ipv4_active: false
       FTLCONF_ntp_ipv6_active: false
       FTLCONF_ntp_sync_active: false
-      FTLCONF_database_network_expire: 7
+#      FTLCONF_database_network_expire: 7
       FTLCONF_webserver_domain: "${NETWORK_DOMAIN}"
       FTLCONF_webserver_session_timeout: 2592000 # 30 days
       FTLCONF_webserver_interface_theme: "default-darker"

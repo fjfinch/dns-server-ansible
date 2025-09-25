@@ -18,7 +18,7 @@ sudo apt update && sudo apt install -y git pipx && pipx install ansible --includ
 
 # PIPX from APT is often outdated. PIPX from PIP:
 sudo apt update &&\
-sudo apt install -y git pip python3-venv &&\
+sudo apt install -y git python3-pip python3-venv &&\
 pip install --break-system-packages --user pipx &&\
 python3 -m pipx ensurepath &&\
 . ~/.profile &&\

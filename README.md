@@ -41,9 +41,8 @@ ansible-galaxy collection install -r requirements.yml
 ansible-playbook main.yml -K
 ```
 
----
-
-Extra blocklists for Pi-hole are optional. Go to the 'Lists' page, and paste the URLs below all in once in the 'Address' box:
+# Optional
+Extra blocklists for Pi-hole are optional. If needed, go to the 'Lists' page and add the following URLs:
 ```bash
 https://v.firebog.net/hosts/AdguardDNS.txt
 https://v.firebog.net/hosts/Easyprivacy.txt
@@ -61,4 +60,4 @@ Advertising
 Malicious
 ```
 
-Update gravity. In the 'Tools' tab, go to the 'Update Gravity' page. Or run 'sudo docker exec -it pihole pihole updateGravity' in the CLI.
+Next is to update gravity. Under the 'Tools' tab, go to the 'Update Gravity' page. Or run `sudo docker exec -it pihole pihole updateGravity` in the CLI.

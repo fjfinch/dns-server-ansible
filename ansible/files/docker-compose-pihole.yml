@@ -25,7 +25,7 @@ services:
       FTLCONF_webserver_interface_theme: "default-darker"
       FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
       FTLCONF_webserver_api_maxClients: 32
-      FTLCONF_dns_listeningMode: 'ALL'
+#      FTLCONF_dns_listeningMode: 'ALL'
     cap_add:
 #      - SYS_TIME # set the host's system time for NTP
       - SYS_NICE # get some more processing time

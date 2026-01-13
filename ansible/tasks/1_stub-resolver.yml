@@ -26,4 +26,4 @@
             state: restarted
       when: stub_resolver.changed
   become: true
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_facts["distribution"] == 'Ubuntu'

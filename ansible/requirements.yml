@@ -1,5 +1,5 @@
 ---
 collections:
   - name: community.general
-  - name: community.docker
   - name: git+https://github.com/fjfinch/ansible-namespace.git
+  - name: community.docker # docker specific

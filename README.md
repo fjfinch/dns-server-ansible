@@ -14,15 +14,7 @@ To use this repo, a couple of tools are required:
 
 1 - Oneliner to install all above:
 ```bash
-sudo apt update && sudo apt install -y git pipx && pipx install ansible --include-deps && . ~/.profile
-
-# PIPX from APT is often outdated. PIPX from PIP:
-sudo apt update &&\
-sudo apt install -y git python3-pip python3-venv &&\
-pip install --break-system-packages --user pipx &&\
-python3 -m pipx ensurepath &&\
-. ~/.profile &&\
-pipx install ansible --include-deps
+sudo apt update && sudo apt install -y git pipx && pipx ensurepath && . ~/.profile && pipx install ansible --include-deps
 ```
 
 2 - Clone this repository:

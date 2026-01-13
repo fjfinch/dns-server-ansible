@@ -15,10 +15,6 @@
     project_src: files/
     pull: always
 #    recreate: always
-    files: '{{ item.files }}'
-  loop:
-    - { files: docker-compose-pihole.yml }
-#    - { files: docker-compose-unbound.yml }
   become: true
 
 - name: 'DOCKER : remove unused images'

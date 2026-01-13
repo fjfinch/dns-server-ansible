@@ -1,5 +1,5 @@
-# dns-server-ansible
-Ansible playbook for deploying and configuring a Pi-hole (& Unbound) container. Tested on Ubuntu (x86 and ARM).
+# pihole-ansible
+Ansible playbook for deploying and configuring a Pi-hole container. Tested on Ubuntu (x86 and ARM).
 
 Note 1: Pi-hole requires information about the hosts network for it's configuration (device ip / gateway ip / subnet prefix / etc.). So make sure the host has network connectivity.
 
@@ -19,7 +19,7 @@ sudo apt update && sudo apt install -y git pipx && pipx ensurepath && . ~/.profi
 
 2 - Clone this repository:
 ```bash
-git clone https://github.com/fjfinch/dns-server-ansible.git
+git clone https://github.com/fjfinch/pihole-ansible.git
 ```
 
 3 - Pull the required roles:
